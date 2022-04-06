@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-grid>
+	    <div *ngFor="let product of products;let i = index">
+        <ion-row *ngIf="i%2 == 0">
+          <ion-col>
+            <div>
+              <ion-list>
+                <ion-list-header>
+                  <ion-label color="primary">
+                    <h1>{{ products[i].name }}</h1>
+                  </ion-label>
+                  <ion-button (click)="onRemoveProduct(products[i])"><ion-icon name="trash"></ion-icon></ion-button>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label>Id</ion-label>
+                  {{ products[i].id }} 
+                </ion-item>
+                <ion-item>
+                  <ion-label>Cost</ion-label>
+                  {{ products[i].cost }} <ion-icon name="logo-euro"></ion-icon>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Quantity</ion-label>
+                  {{ products[i].quantity }} <ion-icon name="cube"></ion-icon>
+                </ion-item>
+              </ion-list>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div *ngIf="i + 1 < products.lenght ">
+              <ion-list>
+                <ion-list-header>
+                  <ion-label color="primary">
+                    <h1>{{ products[i+1].name }}</h1>
+                  </ion-label>
+                  <ion-button (click)="onRemoveProduct(products[i])"><ion-icon name="trash"></ion-icon></ion-button>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label>Id</ion-label>
+                  {{ products[i+1].id }} 
+                </ion-item>
+                <ion-item>
+                  <ion-label>Cost</ion-label>
+                  {{ products[i+1].cost }} <ion-icon name="logo-euro"></ion-icon>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Quantity</ion-label>
+                  {{ products[i+1].quantity }} <ion-icon name="cube"></ion-icon>
+                </ion-item>
+              </ion-list>
+            </div>
+          </ion-col>
+        </ion-row>
+	    </div>
+    </ion-grid>
+    
+  </div>
+  
+
+</ion-content>
